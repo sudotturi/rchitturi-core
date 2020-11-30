@@ -5,24 +5,24 @@ import {
   CToggler,
   CHeaderBrand,
   CHeaderNav,
-  CHeaderNavItem,
-  CHeaderNavLink,
+  // CHeaderNavItem,
+  // CHeaderNavLink,
   CSubheader,
   CBreadcrumbRouter,
-  CLink
+  // CLink
 } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
+// import CIcon from '@coreui/icons-react'
 
 // routes config
 import routes from '../utils/routes'
 
-import logo from "../resources/images/chitturilogo.PNG";
-import { 
-  TheHeaderDropdown,
-  TheHeaderDropdownMssg,
-  TheHeaderDropdownNotif,
-  TheHeaderDropdownTasks
-}  from './index'
+// import logo from "../resources/images/chitturilogo.PNG";
+// import { 
+//   TheHeaderDropdown,
+//   TheHeaderDropdownMssg,
+//   TheHeaderDropdownNotif,
+//   TheHeaderDropdownTasks
+// }  from './index'
 
 const TheHeader = () => {
   const dispatch = useDispatch()
