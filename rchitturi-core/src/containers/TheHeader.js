@@ -12,7 +12,7 @@ import {
   // CLink
 } from '@coreui/react'
 // import CIcon from '@coreui/icons-react'
-
+import Clock from 'react-live-clock';
 // routes config
 import routes from '../utils/routes'
 
@@ -79,6 +79,7 @@ const TheHeader = () => {
       </CHeaderNav>
 
       <CHeaderNav className="px-3">
+      <Clock format={'DD MMM yyyy HH:mm:ss'} ticking={true} timezone={'US/Pacific'} />
         {/* <TheHeaderDropdownNotif/>
         <TheHeaderDropdownTasks/>
         <TheHeaderDropdownMssg/>

@@ -8,7 +8,6 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "react-scripts": "3.4.3",
     "@coreui/chartjs": "^2.0.0",
     "@coreui/coreui": "^3.2.2",
     "@coreui/icons": "2.0.0-beta.4",
@@ -20,13 +19,18 @@
     "core-js": "^3.6.5",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
+    "moment-timezone": "^0.5.32",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
+    "react-google-login": "^5.1.25",
+    "react-live-clock": "^5.0.13",
+    "react-moment": "^1.0.0",
     "react-redux": "7.2.1",
     "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
     "redux": "4.0.5"
   },
   "devDependencies": {
