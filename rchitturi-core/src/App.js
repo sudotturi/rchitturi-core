@@ -52,6 +52,16 @@ class App extends Component {
               name="Home"
               render={(props) => <TheLayout {...props} />}
             />
+            <Route
+              path="/dashboard"
+              name="Dashboard"
+              render={(props) => <TheLayout {...props} />}
+            />
+            <Route
+              path="/dashboard/covid19"
+              name="Dashboard"
+              render={(props) => <TheLayout {...props} />}
+            />
           </Switch>
         </React.Suspense>
       </BrowserRouter>
