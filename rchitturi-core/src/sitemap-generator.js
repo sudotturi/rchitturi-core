@@ -8,7 +8,7 @@ require("babel-register")({
   function generateSitemap() {
       return (
         new Sitemap(router)
-            .build("https://www.chitturi.ml/#/")
+            .build("https://www.chitturi.ml/")
             .save("./public/sitemap.xml")
       );
   }
