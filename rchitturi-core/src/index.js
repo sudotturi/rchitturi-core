@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {hydrate,render} from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -10,10 +10,14 @@ import store from "./stock";
 
  React.icons = icons;
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById("root")
-);
+ const rootElement = document.getElementById('root');
+ if (rootElement.hasChildNodes()) {
+     hydrate(<Provider store={store}>
+      <App />
+    </Provider>, rootElement);
+ } else {
+     render(<Provider store={store}>
+      <App />
+    </Provider>, rootElement);
+ }
 serviceWorker.unregister();
