@@ -12,7 +12,7 @@ import {
 import {
   CChartDoughnut
 } from '@coreui/react-chartjs'
-
+import Covid19Country from './Covid19Country'
 import ChartLineSimple from '../../charts/ChartLineSimple'
 import ChartBarSimple from '../../charts/ChartBarSimple'
 import {API_URLS} from '../../../constants'
@@ -165,6 +165,8 @@ class Covid19 extends React.Component {
           />
         </CCardBody>
       </CCard>
+      <Covid19Country/>
+   
     </>
   )
     }
