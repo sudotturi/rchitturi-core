@@ -15,14 +15,52 @@ import {
 
 import ChartLineSimple from '../../charts/ChartLineSimple'
 import ChartBarSimple from '../../charts/ChartBarSimple'
-const Covid19 = () => {
-  return (
+import {API_URLS} from '../../../constants'
+class Covid19 extends React.Component {
+      constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: {}
+    };
+  }
+   componentDidMount() {
+    fetch(API_URLS.all)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+    
+    render() {
+        const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+    return (
     <>
       <CRow>
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-danger"
-          header="65729273"
+          header= {items.cases}
           text="Confirmed Cases"
           footerSlot={
             <ChartLineSimple
@@ -41,7 +79,7 @@ const Covid19 = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-info"
-          header="18654430"
+          header={items.active}
           text="Active Cases"
           footerSlot={
             <ChartLineSimple
@@ -62,7 +100,7 @@ const Covid19 = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="gradient-success"
-          header="45559376"
+          header={items.recovered}
           text="Recoverd Cases"
           footerSlot={
             <ChartLineSimple
@@ -83,7 +121,7 @@ const Covid19 = () => {
       <CCol sm="6" lg="3">
         <CWidgetDropdown
           color="secondary"
-          header="1515467"
+          header={items.deaths}
           text="Total Death"
           footerSlot={
             <ChartBarSimple
@@ -113,7 +151,7 @@ const Covid19 = () => {
                   '#00D8FF',
                   '#CED2D8'
                 ],
-                data: [65729273, 18654430, 45559376, 1515467]
+                data: [items.cases,items.active,items.recovered,items.deaths]
               }
             ]}
             
@@ -129,6 +167,8 @@ const Covid19 = () => {
       </CCard>
     </>
   )
+    }
+}
 }
 
 export default Covid19
