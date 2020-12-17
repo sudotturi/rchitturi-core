@@ -4,8 +4,6 @@ import {
     CImg
 } from '@coreui/react';
 
-import CIcon from '@coreui/icons-react'
-
 import {API_URLS} from '../../../constants'
 class Covid19Country extends React.Component {
       constructor(props) {
