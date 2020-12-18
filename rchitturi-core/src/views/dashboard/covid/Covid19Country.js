@@ -1,10 +1,19 @@
 import React from 'react'
 
+import {API_URLS} from '../../../constants'
 import {
-    CImg
+  CCard,
+  CCardBody,
+  CCardHeader,
+  CCol,
+  CDataTable,
+  CImg
 } from '@coreui/react';
 
-import {API_URLS} from '../../../constants'
+
+
+const fields = [" ","Country","Confirmed","Active","Recoverd","Deceased"]
+const data = []
 class Covid19Country extends React.Component {
       constructor(props) {
     super(props);
@@ -13,6 +22,16 @@ class Covid19Country extends React.Component {
       isLoaded: false,
       items: []
     };
+  }
+  handleCovidData(items){
+    items.map(item => ( 
+        data.push({"Flag":item.countryInfo.flag 
+    ,"Country":item.country ,"Confirmed": item.cases ,
+                    "Active":item.active,
+                    "Recoverd":item.recovered,
+                    "Deceased":   item.deaths})
+    ))
+            
   }
    componentDidMount() {
     fetch(API_URLS.states)
@@ -43,52 +62,34 @@ class Covid19Country extends React.Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
+        this.handleCovidData(items)
     return (
     <>
-              <table className="table table-hover table-outline mb-0 d-none d-sm-table">
-                <thead className="thead-light">
-                  <tr>
-                    <th></th>
-                    
-                    <th >Country</th>
-                    <th>Confirmed</th>
-                    <th>Active</th>
-                    <th>Recoverd</th>
-                    <th>Deceased</th>
-                  </tr>
-                </thead>
-                <tbody>
-                       {items.map(item => (
-            
-                  <tr key={item.countryInfo._id}>
-                    <td className="text-center">
-                        <CImg src={item.countryInfo.flag} height={25}   /> 
-                    </td>
-         
-                    <td >
-                        
-                      {item.country}
-                      
-                    </td>
-         
+        <CCol >
+          <CCard>
+            <CCardHeader>
+              Covid 19 Cases By Country
+            </CCardHeader>
+            <CCardBody>
+            <CDataTable
+              items={data}
+              fields={fields}
+              itemsPerPage={15}
+              pagination
+              scopedSlots = {{
+                ' ':
+                  (item)=>(
                     <td>
-                      {item.cases}
+                      <CImg src={item.Flag} height={25}   />
                     </td>
-                    <td>
-                      {item.active}
-                    </td>
-  <td>
-                      {item.recovered}
-                    </td>
-  <td>
-                      {item.deaths}
-                    </td>
-  
-                    </tr>
-          ))}
-         </tbody>
-              </table>
+                  )
 
+              }}
+            />
+            </CCardBody>
+          </CCard>
+        </CCol>
+      
     </>
   )
     }
