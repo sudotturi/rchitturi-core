@@ -1,5 +1,5 @@
 import React from "react";
-import {hydrate,render} from "react-dom";
+import {render} from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
@@ -11,19 +11,11 @@ import store from "./stock";
 
 React.icons = icons;
  const rootElement = document.getElementById('root');
- if (rootElement.hasChildNodes()) {
-     hydrate(
-      <BrowserRouter>
-      <Provider store={store}>
-      <App />
-    </Provider>
-    </BrowserRouter>, rootElement);
- } else {
-     render(
+    render(
       <BrowserRouter>
      <Provider store={store}>
       <App />
     </Provider>
     </BrowserRouter>, rootElement);
- }
+ 
 serviceWorker.unregister();

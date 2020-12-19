@@ -5,24 +5,12 @@ import {
   CToggler,
   CHeaderBrand,
   CHeaderNav,
-  // CHeaderNavItem,
-  // CHeaderNavLink,
   CSubheader,
-  CBreadcrumbRouter,
-  // CLink
-} from '@coreui/react'
-// import CIcon from '@coreui/icons-react'
+  CBreadcrumbRouter
+} from '@coreui/react';
 import Clock from 'react-live-clock';
 // routes config
-import routes from '../utils/routes'
-
-// import logo from "../resources/images/chitturilogo.PNG";
-// import { 
-//   TheHeaderDropdown,
-//   TheHeaderDropdownMssg,
-//   TheHeaderDropdownNotif,
-//   TheHeaderDropdownTasks
-// }  from './index'
+import routes from '../utils/routes';
 
 const TheHeader = () => {
   const dispatch = useDispatch()
@@ -36,7 +24,7 @@ const TheHeader = () => {
   const toggleSidebarMobile = () => {
     const val = [false, 'responsive'].includes(sidebarShow) ? true : 'responsive'
     dispatch({type: 'set', sidebarShow: val})
-  }
+}
 
   return (
     <CHeader withSubheader>
@@ -79,7 +67,7 @@ const TheHeader = () => {
       </CHeaderNav>
 
       <CHeaderNav className="px-3">
-      <Clock format={'DD MMM yyyy HH:mm:ss'} ticking={true} timezone={'US/Pacific'} />
+      <Clock format={'DD MMM yyyy HH:mm:ss'} ticking={true} timezone={'Asia/Kolkata'} />
         {/* <TheHeaderDropdownNotif/>
         <TheHeaderDropdownTasks/>
         <TheHeaderDropdownMssg/>
