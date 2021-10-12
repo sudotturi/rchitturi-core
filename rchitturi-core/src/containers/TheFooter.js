@@ -6,7 +6,7 @@ const TheFooter = () => {
     <CFooter fixed={false}>
       <div>
          <span className="ml-1">ChittuRI</span>
-        <span className="ml-1">&copy; 2020 <a href="https://rahulchitturi.gq" target="_blank" rel="noopener noreferrer">Rahul Chitturi</a>
+        <span className="ml-1">&copy; 2020 <a href="https://rahulchitturi.ml" target="_blank" rel="noopener noreferrer">Rahul Chitturi</a>
         .</span>
       </div>
       {/* <div className="mfs-auto">
